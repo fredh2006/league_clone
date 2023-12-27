@@ -3,9 +3,7 @@
 <template>
   <main>
     <div class="hero-text">
-      <div id="hero-title">CHOOSE YOUR</div>
-      <div id="champion">CHAMPION
-      </div>
+      <div id="hero-title">CHOOSE YOUR <span id="champion"></span></div>
     </div>
     <div id="hero-description">
       <p>
@@ -45,9 +43,48 @@ export default {
     //       console.error(error)
     //     })
     // }
+    rotateWords() {
+    const dynamicText = document.getElementById("champion")
+    const words = ['MAGE', 'TANK', 'FIGHTER', 'SUPPORT', 'ASSASSIN', 'MARKSMEN', 'CHAMPION']
+    // Variables to track the position and deletion status of the word
+    let wordIndex = 0
+    let charIndex = 0
+    let isDeleting = false
+    let timesRun = 0;
+    const typeEffect = () => {
+      const currentWord = words[wordIndex]
+      const currentChar = currentWord.substring(0, charIndex)
+      dynamicText.textContent = currentChar
+      dynamicText.classList.add('stop-blinking')
+      
+      if(timesRun<13){
+
+      if (!isDeleting && charIndex < currentWord.length) {
+        // If condition is true, type the next character
+        charIndex++
+        setTimeout(typeEffect, 200)
+      } else if (isDeleting && charIndex > 0) {
+        // If condition is true, remove the previous character
+        charIndex--
+        setTimeout(typeEffect, 200)
+      } else {
+        // If word is deleted then switch to the next word
+        isDeleting = !isDeleting
+        dynamicText.classList.remove('stop-blinking')
+        wordIndex = !isDeleting ? (wordIndex + 1) % words.length : wordIndex
+        setTimeout(typeEffect, 10)
+        timesRun++;
+      }
+
+    }
+
+    }
+      typeEffect();
+  },
   },
   mounted() {
     // this.fetchChampions()
+    this.rotateWords();
   }
 }
 </script>

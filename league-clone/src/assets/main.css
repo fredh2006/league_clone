@@ -21,9 +21,29 @@
 }
 
 #champion{
-  margin-top: -50px;
+  margin-top: -15px;
   font-size: calc(61.82px + 4.69vw);
   font-weight: 700;
+}
+
+#hero-title span{
+  position: relative;
+}
+
+#hero-title span::before{
+  content: "";
+  height: 30px;
+  width: 2px;
+  position: absolute;
+  top: 50%;
+  right: -8px;
+  background: red;
+  transform: translate(-45%);
+  animation: blink 0.7s infinite;
+}
+
+#hero-title span.stop-blinking::before{
+  animation: none;
 }
 
 #hero-description{
