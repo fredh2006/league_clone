@@ -1,0 +1,48 @@
+@import './base.css';
+
+*{
+  background-color: #FFF;
+  color: #000;
+}
+
+.hero-text{
+  padding-top: 25px;
+  text-align: center;
+  font-family: "beaufort-pro", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+#hero-title{
+  display: flex;
+  flex-direction: column;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+#champion{
+  margin-top: -50px;
+  font-size: calc(61.82px + 4.69vw);
+  font-weight: 700;
+}
+
+#hero-description{
+  text-align: center;
+  font-family: 'Gill Sans';
+}
+
+@media(max-width: 850px){
+  #champion{
+    margin-top: -30px;
+  }
+}
+
+@media(max-width: 500px){
+  #champion{
+    margin-top: -20px;
+    font-size: calc(52.76px + 4.3vw)
+  }
+  #hero-title{
+    font-size: 1.5rem;
+  }
+}
