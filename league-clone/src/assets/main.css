@@ -5,10 +5,6 @@
   color: #000;
 }
 
-.hero{
-  background-color: #CDCDCD;
-}
-
 .hero-text{
   padding-top: 25px;
   text-align: center;
@@ -45,7 +41,7 @@
 }
 
 #hero-description{
-  margin-top: -75px;
+  margin-top: calc(-50px - 2vw);
   text-align: center;
   font-family: 'Gill Sans';
   margin-left: auto;
@@ -115,9 +111,94 @@
   transform: translate(5px, -2px);
 }
 
+.stats-container{
+  background-color: #000;
+}
+
+.champion-name-container{
+  height: 75vh;
+  width: 75vw;
+  /* background-image: url('https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg'); */
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  
+}
+
+.champion-name{
+  margin-top: 65vh;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: #000;
+  color: #000;
+  font-family: "beaufort-pro", serif;
+  font-weight: 900;
+  font-style: italic;
+  font-size: calc(61.82px + 2.50vw);
+  color: transparent;
+  -webkit-text-stroke: 1px #FFF;
+  background-image: linear-gradient(#FFF, #FFF);
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-position: -350px 0;
+  animation: backcolor 5s linear infinite alternate;
+}
+
+@keyframes backcolor{
+  100%{
+    background-position: 0 0;
+  }
+}
+
+.stats{
+  font-family: "beaufort-pro", serif;
+  font-weight: 1000;
+  font-style: italic;
+  font-size: 20px;
+  background-color: #181818;
+  color: #FFF;
+}
+
+.champion-stats{
+  width: 100%;
+  font-size: 20px;
+  font-family: 'Arial';
+  color: #FFF;
+  background-color: #181818;
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -95%);
+  text-align: center;
+}
+
 @media(max-width: 850px){
   #champion{
     margin-top: -35px;
+  }
+  #hero-description{
+    margin-top: calc(-50px - 5vw);
+    width: 60%;
+  }
+}
+
+@media(max-width: 780px){
+  .card-image{
+    height: 90%;
+  }
+  .champion-name{
+    margin-top: calc(15px + 65vh)
+  }
+}
+
+@media(max-width: 650px){
+  #hero-description{
+    margin-top: calc(-50px - 8vw);
+  }
+  .champion-stats{
+    margin-top: 15px
   }
 }
 
@@ -128,5 +209,9 @@
   }
   #hero-title{
     font-size: 1.5rem;
+  }
+  #hero-description{
+    margin-top: calc(-100px - 8vw);
+    width: 80%;
   }
 }

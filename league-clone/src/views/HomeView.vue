@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import axios, { formToJSON } from 'axios'
+import axios from 'axios'
 
 export default {
   data() {
@@ -112,6 +112,11 @@ export default {
         img.src = champions[i].big_image_url
         img.classList.add('card-image')
 
+        let a = document.createElement('a') //attaches link to post on image
+            a.appendChild(img)
+            a.classList.add('card-image')
+            a.href = `/champion/${champions[i].id}`
+
         let name = document.createElement('span')
         let pContainer = document.createElement('span')
         pContainer.classList.add('name')
@@ -122,8 +127,9 @@ export default {
         name.appendChild(pContainer)
         name.classList.add('name-container')
 
-        card.appendChild(img)
+        card.appendChild(a)
         card.appendChild(name)
+
 
         this.columns[currColumn].appendChild(card)
         currColumn++
