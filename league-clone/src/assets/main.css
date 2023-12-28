@@ -5,12 +5,17 @@
   color: #000;
 }
 
+.hero{
+  background-color: #CDCDCD;
+}
+
 .hero-text{
   padding-top: 25px;
   text-align: center;
   font-family: "beaufort-pro", serif;
   font-weight: 700;
   font-style: italic;
+  height: 300px;
 }
 
 #hero-title{
@@ -21,39 +26,98 @@
 }
 
 #champion{
-  margin-top: -15px;
+  margin-top: -50px;
   font-size: calc(61.82px + 4.69vw);
   font-weight: 700;
 }
 
-#hero-title span{
+#hero-title div{
   position: relative;
 }
 
-#hero-title span::before{
-  content: "";
-  height: 30px;
-  width: 2px;
-  position: absolute;
-  top: 50%;
-  right: -8px;
-  background: red;
+#hero-title div::before{
   transform: translate(-45%);
   animation: blink 0.7s infinite;
 }
 
-#hero-title span.stop-blinking::before{
+#hero-title div.stop-blinking::before{
   animation: none;
 }
 
 #hero-description{
+  margin-top: -75px;
   text-align: center;
   font-family: 'Gill Sans';
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+}
+
+.champion-container{
+  margin-top: 25px;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  margin-bottom: 20px;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
+}
+
+.card-image{
+  width: 100%;
+  height: 375px;
+}
+
+.name-container{
+  display: inline-block;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding-left: 25px;
+  background-color: #000;
+}
+
+.name-container p{
+  background-color: #000;
+  color: #FFF;
+  font-family: "beaufort-pro", serif;
+  font-weight: 900;
+  font-style: italic;
+  font-size: 20px;
+}
+
+.name{
+  transition: transform .3s ease-out;
+}
+
+.card:hover .name-container{
+  background-color:#005A82;
+}
+
+.card:hover .name-container p{
+  background-color:#005A82;
+}
+
+.card:hover .name{
+  transform: translate(5px, -2px);
 }
 
 @media(max-width: 850px){
   #champion{
-    margin-top: -30px;
+    margin-top: -35px;
   }
 }
 
