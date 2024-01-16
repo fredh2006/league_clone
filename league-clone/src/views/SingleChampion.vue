@@ -43,8 +43,12 @@ export default {
           this.champion = response.data
           this.name = this.champion.name.toUpperCase()
           let nameHolder = response.data.name.replace(/'/g, '')
+          nameHolder = nameHolder.replace(/ /g,'')
 
           let imageName = nameHolder + '_0'
+          if(this.champion.name === "Nunu & Willump"){
+            imageName = "Nunu_0"
+          }
           let imageLink = `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${imageName}.jpg`
 
           let media = window.matchMedia("(max-width: 500px)");

@@ -51,8 +51,8 @@
 
 .champion-container{
   margin-top: 25px;
-  margin-left: 25px;
-  margin-right: 25px;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 .card {
@@ -127,10 +127,10 @@
 }
 
 .champion-name{
+  width: 100%;
+  text-align: center;
   margin-top: 65vh;
   position: absolute;
-  left: 50%;
-  transform: translate(-50%, 0);
   background-color: #000;
   color: #000;
   font-family: "beaufort-pro", serif;
@@ -142,7 +142,7 @@
   background-image: linear-gradient(#FFF, #FFF);
   background-repeat: no-repeat;
   -webkit-background-clip: text;
-  background-position: -350px 0;
+  background-position: -1000px 0;
   animation: backcolor 5s linear infinite alternate;
 }
 

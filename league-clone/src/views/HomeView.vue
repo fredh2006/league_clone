@@ -46,16 +46,14 @@ export default {
         params: { sort: 'name', page: `${pageNumber}`, per_page: '100' },
         headers: {
           accept: 'application/json',
-          authorization: 'Bearer IhXJCEyOkxSbP1pdpvNSnS4feNb3VTiG1po9gNFMf0ByQvt6VkI'
+          authorization: 'Bearer IhXJCEyOkxSbP1pdpvNSnS4feNb3VTiG1po9gNFMf0ByQvt6VkI',
         }
       }
       axios
         .request(options)
         .then((response) => {
           this.allChampions = response.data
-          this.champions = JSON.parse(JSON.stringify(this.allChampions))
-          console.log(this.champions)
-          this.generateChampionCards(this.champions)
+          this.generateChampionCards(response.data)
         })
         .catch((error) => {
           console.error(error)
