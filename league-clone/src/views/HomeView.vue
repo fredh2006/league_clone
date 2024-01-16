@@ -33,32 +33,33 @@ export default {
     return {
       words: [],
       champions: [],
-      columns: []
+      columns: [],
+      allChampions: [],
+      totalChampions: []
     }
   },
   methods: {
-    fetchChampions() {
-      for (let i = 1; i <= 2; i++) {
-        const options = {
-          method: 'GET',
-          url: 'https://api.pandascore.co/lol/champions',
-          params: { sort: 'name', page: `${i}`, per_page: '100' },
-          headers: {
-            accept: 'application/json',
-            authorization: 'Bearer IhXJCEyOkxSbP1pdpvNSnS4feNb3VTiG1po9gNFMf0ByQvt6VkI'
-          }
+    fetchChampions(pageNumber) {
+      const options = {
+        method: 'GET',
+        url: 'https://api.pandascore.co/lol/champions',
+        params: { sort: 'name', page: `${pageNumber}`, per_page: '100' },
+        headers: {
+          accept: 'application/json',
+          authorization: 'Bearer IhXJCEyOkxSbP1pdpvNSnS4feNb3VTiG1po9gNFMf0ByQvt6VkI'
         }
-        axios
-          .request(options)
-          .then((response) => {
-            let champions = response.data
-            this.champions = champions
-            this.generateChampionCards(this.champions)
-          })
-          .catch((error) => {
-            console.error(error)
-          })
       }
+      axios
+        .request(options)
+        .then((response) => {
+          this.allChampions = response.data
+          this.champions = JSON.parse(JSON.stringify(this.allChampions))
+          console.log(this.champions)
+          this.generateChampionCards(this.champions)
+        })
+        .catch((error) => {
+          console.error(error)
+        })
     },
     typeWords() {
       const dynamicText = document.getElementById('champion')
@@ -96,9 +97,8 @@ export default {
       typeEffect()
     },
     generateChampionCards(champions) {
-      let column = document.querySelectorAll('.column');
+      let column = document.querySelectorAll('.column')
       this.columns = column
-
 
       let currColumn = 0
       for (let i = 0; i < champions.length; i++) {
@@ -113,9 +113,9 @@ export default {
         img.classList.add('card-image')
 
         let a = document.createElement('a') //attaches link to post on image
-            a.appendChild(img)
-            a.classList.add('card-image')
-            a.href = `/champion/${champions[i].id}`
+        a.appendChild(img)
+        a.classList.add('card-image')
+        a.href = `/champion/${champions[i].id}`
 
         let name = document.createElement('span')
         let pContainer = document.createElement('span')
@@ -130,14 +130,14 @@ export default {
         card.appendChild(a)
         card.appendChild(name)
 
-
         this.columns[currColumn].appendChild(card)
         currColumn++
       }
     }
   },
   mounted() {
-    this.fetchChampions()
+    this.fetchChampions(1)
+    this.fetchChampions(2)
     this.typeWords()
   }
 }
