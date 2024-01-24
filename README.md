@@ -1,1 +1,3 @@
-Clone of the League of Legends Champions Website using the PandaScore API, Vue.js, Vanilla JS, and CSS animations
+Partial clone of the League of Legends Champions website created utilizing the PandaScoreAPI & MEVN stack.
+
+https://i.ibb.co/rwNYP5K/image-2024-01-23-204955800.png
